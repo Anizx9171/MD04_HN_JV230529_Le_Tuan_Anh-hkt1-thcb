@@ -192,7 +192,10 @@ CREATE PROCEDURE PROC_DELETEMARK(
     IN stId VARCHAR(4)
 )
 BEGIN
+	DECLARE count_delete INT;
     DELETE FROM mark WHERE studentId = stId;
+    SET count_delete = ROW_COUNT();
+    SELECT count_delete AS count_delete;
 END;
 //
 -- CALL PROC_DELETEMARK('S001');
